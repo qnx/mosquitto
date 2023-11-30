@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shiplist>
+	<id>com.qnx.${baselineId}.osr.mosquitto.internal</id>
+	<name>Eclipse Mosquitto 2.0.15 Library</name>
+	<description>Eclipse Mosquitto - an open source MQTT broker</description>
+	<property key="f.support" value="Custom"/>
+	<property key="f.swtype" value="III"/>
+	<property key="f.engage" value="B"/>
+	<category>OSR</category>
+
+	<property key="com.qnx.internal" value="true"/>
+	<!-- don't generate provides/requires tags for internal packages-->
+	<requires value="suppress-library: autogen"/>
+	<provides value="suppress-library: autogen"/>
+
+	<file name="${targetfolder}/etc/mosquitto/mosquitto.conf" />
+	<file name="${targetfolder}/etc/mosquitto/aclfile.example" />
+	<file name="${targetfolder}/etc/mosquitto/pskfile.example" />
+	<file name="${targetfolder}/etc/mosquitto/pwfile.example" />
+	<file name="${targetfolder}/[ARCH]/usr/lib/libmosquitto.so.2.0.15" />
+	<file name="${targetfolder}/[ARCH]/usr/lib/libmosquitto.so.1" />
+	<file name="${targetfolder}/[ARCH]/usr/lib/libmosquitto.so" />
+	<file name="${targetfolder}/usr/include/mosquitto.h" />
+	<file name="${targetfolder}/usr/include/mqtt_protocol.h" />
+	<file name="${targetfolder}/[ARCH]/usr/lib/libmosquittopp.so.2.0.15" />
+	<file name="${targetfolder}/[ARCH]/usr/lib/libmosquittopp.so.1" />
+	<file name="${targetfolder}/[ARCH]/usr/lib/libmosquittopp.so" />
+	<file name="${targetfolder}/usr/include/mosquittopp.h" />
+	<file name="${targetfolder}/[ARCH]/usr/bin/mosquitto_pub" />
+	<file name="${targetfolder}/[ARCH]/usr/bin/mosquitto_sub" />
+	<file name="${targetfolder}/[ARCH]/usr/bin/mosquitto_rr" />
+	<file name="${targetfolder}/[ARCH]/usr/sbin/mosquitto" />
+	<file name="${targetfolder}/usr/include/mosquitto_broker.h" />
+	<file name="${targetfolder}/usr/include/mosquitto_plugin.h" />
+	<file name="${targetfolder}/[ARCH]/usr/bin/mosquitto_passwd" />
+</shiplist>
