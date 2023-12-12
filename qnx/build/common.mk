@@ -58,11 +58,14 @@ mosquitto_all:
 	@cd build && cmake $(CMAKE_ARGS) ../../../../
 	@cd build && make VERBOSE=1 all $(MAKE_ARGS)
 	@cp -r $(PROJECT_ROOT)/../../test ./build
+
+test:
+	@cd build && make install $(MAKE_ARGS)
 	@cd build/test/broker/c && make -f Makefile.qnx clean && make -f Makefile.qnx $(MAKE_ARGS) TARGET=$(MOSQUITTO_INSTALL_ROOT) CPUVARDIR=$(CPUVARDIR)
 	@cd build/test/lib/c && make -f Makefile.qnx clean&& make -f Makefile.qnx $(MAKE_ARGS) TARGET=$(MOSQUITTO_INSTALL_ROOT) CPUVARDIR=$(CPUVARDIR)
 	@cd build/test/lib/cpp && make -f Makefile.qnx clean && make -f Makefile.qnx $(MAKE_ARGS) TARGET=$(MOSQUITTO_INSTALL_ROOT) CPUVARDIR=$(CPUVARDIR)
 
-install: mosquitto_all
+install: mosquitto_all test
 	@cd build && make install $(MAKE_ARGS)
 	@mkdir -p $(MOSQUITTO_INSTALL_ROOT)/$(CPUVARDIR)/usr/bin/mqtt_tests/src
 	@cp $(MOSQUITTO_INSTALL_ROOT)/$(CPUVARDIR)/usr/sbin/mosquitto $(MOSQUITTO_INSTALL_ROOT)/$(CPUVARDIR)/usr/bin/mqtt_tests/src
